@@ -433,3 +433,34 @@ function getFallbackGradient(name) {
   const index = Math.abs(hash) % gradients.length;
   return gradients[index];
 }
+
+/* TOGGLE FULLSCREEN WITH MULTI-DEVICE SUPPORT */
+function toggleFullscreen() {
+  const video = document.getElementById("video");
+  
+  if (video.requestFullscreen) {
+    if (!document.fullscreenElement) {
+      video.requestFullscreen().catch(err => {
+        console.error("Error attempting to enable fullscreen:", err);
+      });
+    } else {
+      document.exitFullscreen();
+    }
+  } else if (video.webkitRequestFullscreen) { /* Chrome/Safari/Opera on Desktop/Android */
+    if (!document.webkitFullscreenElement) {
+      video.webkitRequestFullscreen();
+    } else {
+      document.webkitExitFullscreen();
+    }
+  } else if (video.msRequestFullscreen) { /* IE/Edge */
+    if (!document.msFullscreenElement) {
+      video.msRequestFullscreen();
+    } else {
+      document.msExitFullscreen();
+    }
+  } else if (video.webkitEnterFullscreen) { /* iOS (iPhone) Support */
+    video.webkitEnterFullscreen();
+  } else {
+    alert("Fullscreen is not supported on this browser or device.");
+  }
+}
