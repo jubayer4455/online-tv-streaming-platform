@@ -478,22 +478,23 @@ function getFallbackGradient(name) {
 /* TOGGLE FULLSCREEN WITH MULTI-DEVICE & AUTO-LANDSCAPE SUPPORT */
 function toggleFullscreen() {
   const video = document.getElementById("video");
+  const playerWrapper = document.querySelector(".player-wrapper");
   
   if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
     // Enter Fullscreen
-    if (video.requestFullscreen) {
-      video.requestFullscreen()
+    if (playerWrapper.requestFullscreen) {
+      playerWrapper.requestFullscreen()
         .then(() => {
           lockOrientation();
         })
         .catch(err => {
           console.error("Error entering fullscreen:", err);
         });
-    } else if (video.webkitRequestFullscreen) { /* Chrome/Safari on Desktop/Android */
-      video.webkitRequestFullscreen();
+    } else if (playerWrapper.webkitRequestFullscreen) { /* Chrome/Safari on Desktop/Android */
+      playerWrapper.webkitRequestFullscreen();
       setTimeout(lockOrientation, 150);
-    } else if (video.msRequestFullscreen) { /* IE/Edge */
-      video.msRequestFullscreen();
+    } else if (playerWrapper.msRequestFullscreen) { /* IE/Edge */
+      playerWrapper.msRequestFullscreen();
       setTimeout(lockOrientation, 150);
     } else if (video.webkitEnterFullscreen) { /* iOS (iPhone) Support */
       // iOS webkitEnterFullscreen natively takes over screen and handles auto-rotation
