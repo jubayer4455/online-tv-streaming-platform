@@ -32,30 +32,6 @@ function setupFullscreenChange() {
       }
     });
   });
-
-  // Release orientation lock and exit fullscreen if the browser window is minimized or hidden
-  document.addEventListener("visibilitychange", () => {
-    if (document.hidden) {
-      exitFullscreenAndUnlock();
-    }
-  });
-
-  window.addEventListener("blur", () => {
-    exitFullscreenAndUnlock();
-  });
-}
-
-function exitFullscreenAndUnlock() {
-  unlockOrientation();
-  if (document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement) {
-    if (document.exitFullscreen) {
-      document.exitFullscreen().catch(err => {});
-    } else if (document.webkitExitFullscreen) {
-      document.webkitExitFullscreen();
-    } else if (document.msExitFullscreen) {
-      document.msExitFullscreen();
-    }
-  }
 }
 
 /* SYNC VIDEO STATE WITH PLAY/PAUSE BUTTON */

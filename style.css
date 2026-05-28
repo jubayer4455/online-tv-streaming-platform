@@ -933,6 +933,73 @@ video {
   }
 }
 
+/* MOBILE LANDSCAPE OPTIMIZATION */
+@media (max-width: 1024px) and (orientation: landscape) {
+  .app-container {
+    flex-direction: row !important;
+    height: 100vh !important;
+    overflow: hidden !important;
+  }
+
+  .player-section {
+    width: 40% !important;
+    min-width: 280px !important;
+    max-width: 420px !important;
+    height: 100vh !important;
+    position: sticky !important;
+    top: 0 !important;
+    border-right: 1px solid var(--border-color) !important;
+    border-bottom: none !important;
+    padding: 15px !important;
+    overflow-y: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  .player-section::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .player-section::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+  }
+
+  .logo {
+    font-size: 22px !important;
+  }
+
+  .header {
+    margin-bottom: 5px !important;
+  }
+
+  .channels-section {
+    flex: 1 !important;
+    width: auto !important;
+    height: 100vh !important;
+    overflow-y: auto !important;
+    padding: 0 !important;
+  }
+
+  .video-container {
+    aspect-ratio: 16/9 !important;
+    width: 100% !important;
+  }
+
+  .current-channel-card {
+    margin-top: 10px !important;
+    padding: 10px !important;
+    max-height: none !important;
+  }
+
+  .footer {
+    display: block !important;
+    margin-top: auto !important;
+    padding-top: 15px !important;
+  }
+}
+
 /* FULLSCREEN PLAYER OVERRIDES */
 .player-wrapper:fullscreen {
   width: 100vw !important;
