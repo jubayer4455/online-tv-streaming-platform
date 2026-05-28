@@ -164,6 +164,13 @@ body {
 .player-wrapper {
   position: relative;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
   aspect-ratio: 16/9;
   background: #000;
   border-radius: 18px;
@@ -172,7 +179,7 @@ body {
   transition: var(--transition-normal);
 }
 
-.player-wrapper:hover {
+.video-container:hover {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 25px var(--primary-glow);
   transform: translateY(-2px);
 }
@@ -236,28 +243,21 @@ video {
   100% { opacity: 1; }
 }
 
-/* CUSTOM CONTROLS OVERLAY */
+/* CUSTOM CONTROLS PANEL (NORMAL MODE) */
 .custom-controls {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, transparent 100%);
+  margin-top: 15px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 25px;
-  padding: 25px 15px 15px;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all var(--transition-normal);
+  padding: 12px 20px;
+  backdrop-filter: blur(var(--blur-amount));
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  width: 100%;
   z-index: 4;
-}
-
-.player-wrapper:hover .custom-controls,
-.custom-controls.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .control-btn {
@@ -923,6 +923,7 @@ video {
   max-height: none !important;
   border-radius: 0 !important;
   display: flex !important;
+  flex-direction: column !important;
   align-items: center !important;
   justify-content: center !important;
   background: #000 !important;
@@ -935,21 +936,57 @@ video {
   max-height: none !important;
   border-radius: 0 !important;
   display: flex !important;
+  flex-direction: column !important;
   align-items: center !important;
   justify-content: center !important;
   background: #000 !important;
 }
 
-.player-wrapper:fullscreen video {
+/* Make video container fill full viewport in fullscreen */
+.player-wrapper:fullscreen .video-container,
+.player-wrapper:-webkit-full-screen .video-container {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.player-wrapper:fullscreen video,
+.player-wrapper:-webkit-full-screen video {
   width: 100% !important;
   height: 100% !important;
   object-fit: contain !important;
   background: #000 !important;
 }
 
-.player-wrapper:-webkit-full-screen video {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: contain !important;
-  background: #000 !important;
+/* Custom Controls as floating auto-hiding overlay in Fullscreen */
+.player-wrapper:fullscreen .custom-controls,
+.player-wrapper:-webkit-full-screen .custom-controls {
+  position: absolute !important;
+  bottom: 40px !important;
+  left: 50% !important;
+  transform: translateX(-50%) translateY(10px) !important;
+  width: auto !important;
+  min-width: 280px !important;
+  margin-top: 0 !important;
+  background: rgba(7, 7, 10, 0.85) !important;
+  backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 0 0 25px var(--primary-glow) !important;
+  padding: 12px 25px !important;
+  border-radius: 50px !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  z-index: 10 !important;
+  transition: opacity var(--transition-normal), transform var(--transition-normal) !important;
+}
+
+.player-wrapper:fullscreen:hover .custom-controls,
+.player-wrapper:fullscreen .custom-controls.visible,
+.player-wrapper:-webkit-full-screen:hover .custom-controls,
+.player-wrapper:-webkit-full-screen .custom-controls.visible {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: translateX(-50%) translateY(0) !important;
 }
