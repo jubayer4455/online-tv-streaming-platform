@@ -880,6 +880,11 @@ video {
     padding: 0;
   }
 
+  .categories-wrapper::before,
+  .categories-wrapper::after {
+    display: none !important;
+  }
+
   .scroll-indicator {
     display: none !important;
   }
