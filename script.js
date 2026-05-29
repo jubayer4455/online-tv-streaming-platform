@@ -129,7 +129,7 @@ function loadPlaylist() {
       filterAndSearch();
 
       if (filteredChannels.length > 0) {
-        const defaultIndex = filteredChannels.findIndex(c => c.name.toLowerCase() === "channel i");
+        const defaultIndex = filteredChannels.findIndex(c => c.name.toLowerCase().includes("channel i"));
         playChannel(defaultIndex !== -1 ? defaultIndex : 0);
       }
     })
