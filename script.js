@@ -109,17 +109,20 @@ function loadPlaylist() {
             logo = logoMatch[1].trim();
           }
 
-          let category = "Other";
+          let categories = ["Other"];
           const groupMatch = info.match(/group-title="([^"]*)"/);
           if (groupMatch) {
-            category = groupMatch[1].trim();
+            categories = groupMatch[1].split(",").map(c => c.trim()).filter(Boolean);
+            if (categories.length === 0) {
+              categories = ["Other"];
+            }
           }
 
           channels.push({
             name,
             url,
             logo,
-            category
+            categories
           });
         }
       }
@@ -145,7 +148,15 @@ function renderCategories() {
   container.innerHTML = `<button class="category-pill active" data-category="All" onclick="filterCategory('All', this)">All Channels</button>`;
 
   // Extract unique categories
-  const categories = [...new Set(channels.map(ch => ch.category))].filter(Boolean);
+  const categoriesSet = new Set();
+  channels.forEach(ch => {
+    if (ch.categories) {
+      ch.categories.forEach(cat => {
+        if (cat) categoriesSet.add(cat);
+      });
+    }
+  });
+  const categories = [...categoriesSet];
 
   // Sort: Bangla first, news/sports next, rest alphabetical
   categories.sort((a, b) => {
@@ -204,7 +215,7 @@ function filterCategory(category, buttonEl) {
 /* FILTER AND SEARCH CHANNELS */
 function filterAndSearch() {
   filteredChannels = channels.filter(ch => {
-    const matchesCategory = currentCategory === "All" || ch.category === currentCategory;
+    const matchesCategory = currentCategory === "All" || (ch.categories && ch.categories.includes(currentCategory));
     const matchesSearch = ch.name.toLowerCase().includes(searchKeyword);
     return matchesCategory && matchesSearch;
   });
@@ -352,7 +363,7 @@ function updateCurrentInfoCard(channel) {
   const fallback = document.getElementById("currentChannelFallback");
 
   title.innerText = channel.name;
-  category.innerText = channel.category;
+  category.innerText = channel.categories ? channel.categories.join(", ") : "";
 
   if (channel.logo) {
     logo.src = channel.logo;
