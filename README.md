@@ -253,7 +253,7 @@ http://127.0.0.1:5500
 # 📦 Repository Information
 
 * 📁 Repository Name: `online-tv-streaming-platform`
-* 👨‍💻 Developed By: Shahriar Ahmmed Ripon
+* 👨‍💻 Developed By: Shariar Ahamed Ripon
 * 🌍 Platform Type: Online Live TV Streaming
 * 🎯 Focus: Responsive Streaming Experience
 
