@@ -35,7 +35,7 @@ jobs:
 
       - name: Sync Capacitor Android
         run: |
-          npx cap sync --verbose > sync_debug.log 2>&1
+          npx cap sync > sync_debug.log 2>&1
 
       - name: Upload Sync Debug Log
         if: always()
