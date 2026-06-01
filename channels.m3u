@@ -53,6 +53,10 @@ https://tvsen6.aynaott.com/globaltvhd/index.m3u8?e=1779283760&u=78be6644-0a65-48
 https://tvsen6.aynaott.com/nexustv/index.m3u8?e=1779283761&u=78be6644-0a65-48ec-81a4-089ac65a2619&token=bbcba35ac711c3545a56b3580503ee00
 #EXTINF:-1 tvg-logo="https://s3.aynaott.com/storage/e42ecfa90e3d6b15bdb7fea5ef673864" group-title="Bangla",Bangla TV
 https://tvsen6.aynaott.com/banglatv/index.m3u8?e=1779283758&u=78be6644-0a65-48ec-81a4-089ac65a2619&token=f3e9e2737e35147900c0f4add619ead6
+#EXTINF:-1 tvg-name="Rajdhani TV" tvg-logo="https://i.postimg.cc/1R2pmNS1/images-(12).jpg" group-title="Bangla",Rajdhani TV
+https://stream.shariarsuvo.com/hls6/rajdhaniweb.m3u8
+#EXTINF:-1 tvg-name="NRB TV" tvg-logo="https://i.postimg.cc/4yfxvgj5/images-(13).jpg" group-title="Bangla",NRB TV
+https://app.ncare.live/live-orgin/nrb-eu.stream/playlist.m3u8
 #EXTINF:-1 tvg-id="223000" tvg-name="Islamic TV" tvg-logo="https://tstatic.akash-go.com/cms-ui/images/custom-content/1772728412891.png" group-title="Infotainment, Bangla",Islamic TV
 https://owrcovcrpy.gpcdn.net/bpk-tv/1724/output/index.m3u8
 #EXTINF:-1 tvg-logo="https://i.ibb.co/Gfw89mC/20240804-033102.png" group-title="Religious, Bangla",Peace TV Bangla
@@ -81,6 +85,8 @@ https://tvsen6.aynaott.com/mytv/index.m3u8?e=1779283760&u=78be6644-0a65-48ec-81a
 https://dbcanada.sonarbanglatv.com/deshebideshe/dbtv/index.m3u8
 #EXTINF:-1 tvg-logo="https://s3.aynaott.com/storage/73082846fdc15d9f0e7268b104c55d92" group-title="Bangla",Mohona TV
 https://tvsen6.aynaott.com/mohonatv/index.m3u8?e=1779283762&u=78be6644-0a65-48ec-81a4-089ac65a2619&token=017ac949515fd9b0181090287f362d2b
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/5tPJcCrR/Channel-S-400.jpg" group-title="Bangla",Channel S
+https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/chsukoff.stream/playlist.m3u8
 #EXTINF:-1 tvg-id="248000" tvg-name="Program Promo" tvg-logo="https://tstatic.akash-go.com/cms-ui/images/custom-content/1778087459461.png" group-title="Infotainment, Bangla",Program Promo
 https://owrcovcrpy.gpcdn.net/bpk-tv/1720/output/index.m3u8
 #EXTINF:-1 tvg-logo="https://s3.aynaott.com/storage/dbc585f70a60b9855b6e13a8ce4cb6f4" group-title="Sports, Bangla",T Sports HD
@@ -155,8 +161,22 @@ https://feeds.intoday.in/hltapps/api/master.m3u8
 https://a-cdn.klowdtv.com/live1/oan_720p/playlist.m3u8
 #EXTINF:-1 tvg-logo="https://s3.aynaott.com/storage/201491b7327fffb27d78f800dd9f42d2" group-title="News",Iran Press
 https://live.presstv.ir/hls/presstv_5_482/index.m3u8
+
+
+
+#EXTINF:-1 tvg-name="FIFA+ Channel" tvg-logo="https://i.postimg.cc/TYJGfFL0/unnamed.webp" group-title="Sports",FIFA+ Channel
+https://37b4c228.wurl.com/manifest/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmFrdXRlblRWLWZyX0ZJRkFQbHVzRnJlbmNoX0hMUw/6f5437c5-e015-4754-8476-c8c6d27d3a55/1.m3u8
+#EXTINF:-1 tvg-name="Star Sports 1 HD" tvg-logo="https://i.postimg.cc/7hXPLWsW/star-sports-hd-1-logo-300x300-1.webp" group-title="Sports",Star Sports 1 HD
+https://tvsen7.aynaott.com/sspts1/index.m3u8
+#EXTINF:-1 tvg-name="REAL MADRID TV" tvg-logo="https://i.postimg.cc/yxfPT7rC/172735216318-logo-vertical-negativo-1.jpg" group-title="Sports",REAL MADRID TV
+https://rmtv.akamaized.net/hls/live/2043153/rmtv-es-web/bitrate_3.m3u8
 #EXTINF:-1 tvg-logo="https://s3.aynaott.com/storage/9d9d7cbfba5a8ceea648bbd963ad1014" group-title="Sports",PTV Sports
 https://tvsen5.aynaott.com/PtvSports/index.m3u8?e=1779283784&u=78be6644-0a65-48ec-81a4-089ac65a2619&token=db1789e36c278bf538489fac263e0ffb
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/8cvsP4Qp/Logo-PNG.png" group-title="Sports",2TV Sport 🇳🇴
+https://tv.cdn.xsg.ge/gpb-2tv/index.m3u8
+
+
+
 #EXTINF:-1 tvg-logo="https://s3.aynaott.com/storage/64de30d2df9b2a888cb73f17614a9a8b" group-title="Sports",A sports
 https://tvsen6.aynaott.com/asports/index.m3u8?e=1779283785&u=78be6644-0a65-48ec-81a4-089ac65a2619&token=356b906bf972b824782bb58c1ce0bb22
 #EXTINF:-1 tvg-logo="https://s3.aynaott.com/storage/7d20b575edc4e4b5276faa8c246e72a4" group-title="Sports",Cricket Gold
@@ -207,10 +227,7 @@ https://linear-599.frequency.stream/dist/stirr/599/hls/master/playlist.m3u8
 https://mts1.iptv-playoutcenter.de/mts/mts-web/playlist.m3u8
 #EXTINF:-1 tvg-logo="https://s3.aynaott.com/storage/33f87783637fc95fdb8837ba9344c9e9" group-title="Sports",Oman Sports TV
 https://partneta.cdn.mgmlcdn.com/omsport/smil:omsport.stream.smil/chunklist.m3u8
-#EXTINF:-1 tvg-name="Star Sports 1 HD" tvg-logo="https://raw.githubusercontent.com/Rakib49/Rakibiptv/main/Star_Sports_1_HD.png" group-title="Sports",Star Sports 1 HD
-https://tvsen7.aynaott.com/sspts1/index.m3u8
-#EXTINF:-1 tvg-name="FIFA+ Channel" tvg-logo="https://raw.githubusercontent.com/Rakib49/Rakibiptv/main/images%20(11).jpeg" group-title="Sports",FIFA+ Channel
-https://37b4c228.wurl.com/manifest/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmFrdXRlblRWLWZyX0ZJRkFQbHVzRnJlbmNoX0hMUw/6f5437c5-e015-4754-8476-c8c6d27d3a55/1.m3u8
+
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/0j1RkG3v/IDMAN-TV.jpg" group-title="Sports",IDMANTV 🇹🇷
 https://str2.yodacdn.net/idman_300_to_small/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-id="205000" tvg-name="Sports Legends" tvg-logo="https://tstatic.akash-go.com/cms-ui/images/custom-content/1770377900139.png" group-title="Sports",Sports Legends
@@ -247,6 +264,8 @@ https://27c980761ff9437d929e64647afe183a.mediatailor.us-east-1.amazonaws.com/v1/
 https://dfhsahpa45kk2.cloudfront.net/scheduler/scheduleMaster/476.m3u8
 #EXTINF:-1 group-title="",Sports Fishing TV
 https://streams2.sofast.tv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/eea68b79-bfe2-451e-a227-d637a5b9548a/manifest.m3u8
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/8cvsP4Qp/Logo-PNG.png" group-title="Sports",Sport Digital 🇩🇪
+https://jmp2.uk/stvp-ATAJ0500433A
 #EXTINF:-1 tvg-logo="https://s3.aynaott.com/storage/4d343b446b1e7164bb7239bbe822a570" group-title="",MovieSphere
 https://moviesphereuk-samsunguk.amagi.tv/playlist.m3u8
 #EXTINF:-1 tvg-logo="https://s3.aynaott.com/storage/22af43810a37af9a151f1e0a23adde63" group-title="",Rakuten Movies
