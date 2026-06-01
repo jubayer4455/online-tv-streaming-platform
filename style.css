@@ -1228,19 +1228,6 @@ video {
 
 /* RESPONSIVE FOOTER */
 @media (max-width: 768px) {
-  .player-section {
-    padding: 15px 15px 8px 15px;
-  }
-
-  .current-channel-card {
-    margin-top: 10px;
-    padding: 12px;
-  }
-
-  .stats-card {
-    display: none !important;
-  }
-
   .footer-content {
     flex-direction: column;
     text-align: center;
