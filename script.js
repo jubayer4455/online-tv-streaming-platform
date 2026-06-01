@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupFullscreenChange();
   setupCategoryScrolling();
   loadPlaylist();
+  setupLiveStats();
 });
 
 /* DETECT NATIVE FULLSCREEN EXIT TO UNLOCK ORIENTATION */
@@ -611,4 +612,51 @@ function scrollCategories(direction) {
   } else {
     container.scrollBy({ left: scrollAmount, behavior: "smooth" });
   }
+}
+
+/* LIVE VISITOR AND TOTAL VISITS STATS LOGIC */
+function setupLiveStats() {
+  const liveCountEl = document.getElementById("liveCount");
+  const totalCountEl = document.getElementById("totalCount");
+  
+  if (!liveCountEl || !totalCountEl) return;
+
+  // 1. Total Visits Logic (Persist using localStorage)
+  const baseVisits = 9850; // Started around 10k as requested
+  let storedVisits = localStorage.getItem("alpha_tv_total_visits_v2");
+  
+  if (!storedVisits) {
+    storedVisits = baseVisits;
+  } else {
+    storedVisits = parseInt(storedVisits, 10);
+  }
+  
+  // Increment visit by 1 for current session/page load
+  storedVisits += 1;
+  localStorage.setItem("alpha_tv_total_visits_v2", storedVisits);
+  totalCountEl.innerText = storedVisits.toLocaleString();
+
+  // 2. Live Watching Logic (Simulate realistic fluctuations)
+  // Start with a random number between 85 and 145
+  let liveCount = Math.floor(Math.random() * (145 - 85 + 1)) + 85;
+  liveCountEl.innerText = liveCount.toLocaleString();
+
+  // Update live watching stats every 4 seconds (fluctuate between -3 and +3)
+  setInterval(() => {
+    const change = Math.floor(Math.random() * 7) - 3; // -3, -2, -1, 0, 1, 2, 3
+    liveCount += change;
+    
+    // Keep count in a realistic active range (e.g. 70 to 180)
+    if (liveCount < 70) liveCount = 70;
+    if (liveCount > 180) liveCount = 180;
+    
+    liveCountEl.innerText = liveCount.toLocaleString();
+
+    // Occasional global visit increment simulation (e.g. 35% chance every 4s)
+    if (Math.random() < 0.35) {
+      storedVisits += 1;
+      localStorage.setItem("alpha_tv_total_visits_v2", storedVisits);
+      totalCountEl.innerText = storedVisits.toLocaleString();
+    }
+  }, 4000);
 }
