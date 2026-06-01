@@ -1,5 +1,6 @@
 /* VARIABLES */
-const playlist = "channels.m3u";
+const playlistOnline = "https://raw.githubusercontent.com/Shariar-Ahamed/online-tv-streaming-platform/main/channels.m3u";
+const playlistLocal = "channels.m3u";
 
 let channels = [];
 let filteredChannels = [];
@@ -77,8 +78,17 @@ function loadPlaylist() {
   loader.classList.remove("hidden");
   loader.querySelector("span").innerText = "Loading playlist...";
 
-  fetch(playlist)
-    .then((response) => response.text())
+  fetch(playlistOnline)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Online playlist response error");
+      }
+      return response.text();
+    })
+    .catch(err => {
+      console.log("Could not load online playlist, falling back to local file...", err);
+      return fetch(playlistLocal).then(response => response.text());
+    })
     .then((data) => {
       const lines = data.split("\n");
       channels = [];
