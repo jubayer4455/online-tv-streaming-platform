@@ -4,6 +4,9 @@
   "webDir": "www",
   "server": {
     "allowNavigation": ["*"],
+    "cleartext": true
+  },
+  "android": {
     "allowMixedContent": true
   }
 }
