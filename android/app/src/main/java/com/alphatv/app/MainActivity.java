@@ -38,6 +38,24 @@ public class MainActivity extends BridgeActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            // Force orientation back to portrait to exit fullscreen
+            setRequestedOrientation(android.content.pm.ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+            
+            // Allow sensor orientation again after 1 second so auto-rotate still works
+            getWindow().getDecorView().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    setRequestedOrientation(android.content.pm.ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+                }
+            }, 1000);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
     private void applySystemUiVisibility(int orientation) {
         if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
             // Hide both Status Bar (Notification Bar) and Navigation Bar (Home/Back/Menu)
