@@ -103,6 +103,8 @@ https://yupptvcatchupire.yuppcdn.net/preview/colorsbanglahd/800.m3u8
 https://edge2.roarzone.net:8447/roarzone/edge3/sonyaath/index.m3u8?token=571cbfa1fa2e6d2ce7d53975a8ae77afb5189d20-eb13b2ccb090084878804fb0e801091a-1780020920-1780010120
 #EXTINF:-1 tvg-logo="https://tvassets.roarzone.net/images/29.png" group-title="Indian Bangla, Bangla",ZEE BANGLA CINEMA
 https://edge2.roarzone.net:8447/roarzone/edge3/zee_bangla_cinema/index.m3u8?token=33eb90cb5993505e7adebcdc9fe5a680f5ff40b4-89433e784e249e183a59446474d0fff1-1780020920-1780010120
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/pLH5YtWp/images.jpg" group-title="Bangla, Indian Bangla, Movies",Jalsha Movies HD
+http://198.195.239.50:8095/JalshaMovies/index.m3u8
 #EXTINF:-1 tvg-logo="https://s3.aynaott.com/storage/c355110e9cbebd89649a95f0f0fd77da" group-title="Bangla",kolkata TV
 https://tvsen6.aynaott.com/kolkatatv/index.m3u8?e=1779283837&u=78be6644-0a65-48ec-81a4-089ac65a2619&token=8cc8bac4fecb91a1f2e5443bbc180545
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/KYXsFJwR/IMG-20260529-210059.png" group-title="Kids, Bangla",Rongeen TV
