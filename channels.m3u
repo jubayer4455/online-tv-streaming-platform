@@ -241,8 +241,6 @@ https://amg00627-amg00627c29-rakuten-it-3989.playouts.now.amagi.tv/playlist/amg0
 http://198.195.239.50:8095/StarSportsSelect1/index.m3u8
 #EXTINF:-1 tvg-name="STAR SPORTS SELECT2 HD" tvg-logo="https://i.postimg.cc/zXgYdGYT/images.jpg" group-title="Sports",STAR SPORTS SELECT2 HD
 http://198.195.239.50:8095/StarSportsSelect2/index.m3u8
-#EXTINF:-1 tvg-name="SONY SPORTS 2 HD" tvg-logo="https://i.postimg.cc/YCDVMc7t/download.jpg" group-title="Sports",SONY SPORTS 2 HD
-http://198.195.239.50:8095/SonyTenSports2/index.m3u8
 #EXTINF:-1 tvg-name="STAR SPORTS 1HD" tvg-logo="https://i.postimg.cc/KYz13MCB/images.jpg" group-title="Sports",STAR SPORTS 1HD
 http://198.195.239.50:8095/SonyTenSports5/index.m3u8
 #EXTINF:-1 tvg-name="A Sports" tvg-logo="https://i.postimg.cc/GmnPDqjT/download.jpg" group-title="Sports",A Sports
@@ -253,6 +251,8 @@ https://37b4c228.wurl.com/manifest/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmFr
 http://41.205.93.154/STARSPORTS1/index.m3u8
 #EXTINF:-1 tvg-name="REAL MADRID TV" tvg-logo="https://i.postimg.cc/yxfPT7rC/172735216318-logo-vertical-negativo-1.jpg" group-title="Sports",REAL MADRID TV
 https://rmtv.akamaized.net/hls/live/2043153/rmtv-es-web/bitrate_3.m3u8
+#EXTINF:-1 tvg-name="SONY SPORTS 2 HD" tvg-logo="https://i.postimg.cc/YCDVMc7t/download.jpg" group-title="Sports",SONY SPORTS 2 HD
+http://198.195.239.50:8095/SonyTenSports2/index.m3u8
 #EXTINF:-1 tvg-logo="https://s3.aynaott.com/storage/9d9d7cbfba5a8ceea648bbd963ad1014" group-title="Sports",PTV Sports
 https://tvsen5.aynaott.com/PtvSports/index.m3u8?e=1780236743&u=78be6644-0a65-48ec-81a4-089ac65a2619&token=76f74dfc4bdff676d7ce6ad4070d1761
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/k4359Q2w/image.png" group-title="Sports",2TV Sport 🇳🇴
