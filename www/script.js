@@ -6,6 +6,15 @@ let channels = [];
 let filteredChannels = [];
 let currentChannel = null;
 let currentCategory = "All";
+let favorites = [];
+try {
+  const saved = localStorage.getItem("alpha_tv_favorites");
+  if (saved) {
+    favorites = JSON.parse(saved);
+  }
+} catch(e) {
+  console.warn("Could not load favorites from localStorage:", e);
+}
 let searchKeyword = "";
 let currentHls = null;
 let controlsTimeout;
@@ -250,15 +259,20 @@ function renderCategories() {
   });
 
   const allCount = channels.length;
-  container.innerHTML = `<button class="category-pill active" data-category="All" onclick="filterCategory('All', this)">All Channels <span class="category-count">${allCount}</span></button>`;
+  container.innerHTML = `
+    <button class="category-pill" data-category="Favorites" onclick="filterCategory('Favorites', this)">
+      <i class="fa-solid fa-star" style="color: #ffcc00; font-size: 10px; margin-right: 4px;"></i> Favorites <span class="category-count" id="favoritesCategoryCount">${favorites.length}</span>
+    </button>
+    <button class="category-pill active" data-category="All" onclick="filterCategory('All', this)">All Channels <span class="category-count">${allCount}</span></button>
+  `;
 
   const categories = Object.keys(categoryCounts);
 
   // Sort categories by user defined custom order
   categories.sort((a, b) => {
     const customOrder = [
-      "bangla",
       "sports",
+      "bangla",
       "news",
       "kids",
       "indian bangla",
@@ -301,6 +315,13 @@ function renderCategories() {
   }
 }
 
+function updateFavoritesCount() {
+  const countSpan = document.getElementById("favoritesCategoryCount");
+  if (countSpan) {
+    countSpan.innerText = favorites.length;
+  }
+}
+
 /* FILTER BY CATEGORY */
 function filterCategory(category, buttonEl) {
   currentCategory = category;
@@ -326,7 +347,14 @@ function filterCategory(category, buttonEl) {
 /* FILTER AND SEARCH CHANNELS */
 function filterAndSearch() {
   filteredChannels = channels.filter(ch => {
-    const matchesCategory = currentCategory === "All" || (ch.categories && ch.categories.includes(currentCategory));
+    let matchesCategory = false;
+    if (currentCategory === "All") {
+      matchesCategory = true;
+    } else if (currentCategory === "Favorites") {
+      matchesCategory = favorites.includes(ch.url);
+    } else {
+      matchesCategory = ch.categories && ch.categories.includes(currentCategory);
+    }
     const matchesSearch = ch.name.toLowerCase().includes(searchKeyword);
     return matchesCategory && matchesSearch;
   });
@@ -335,6 +363,17 @@ function filterAndSearch() {
 
   const noResults = document.getElementById("noResults");
   if (filteredChannels.length === 0) {
+    if (currentCategory === "Favorites") {
+      noResults.innerHTML = `
+        <span class="empty-icon" style="color: #ffcc00; font-size: 2.2rem; filter: drop-shadow(0 0 10px rgba(255, 204, 0, 0.45)); animation: starPulse 0.3s ease-in-out;"><i class="fa-regular fa-star"></i></span>
+        <p>No favorite channels added yet. Click the star icon on any channel card to add it here.</p>
+      `;
+    } else {
+      noResults.innerHTML = `
+        <span>📺</span>
+        <p>No channels found matching your search</p>
+      `;
+    }
     noResults.classList.remove("hidden");
   } else {
     noResults.classList.add("hidden");
@@ -354,8 +393,12 @@ function renderChannels() {
 
     const fallbackGradient = getFallbackGradient(ch.name);
     const initials = getInitials(ch.name);
+    const isFav = favorites.includes(ch.url);
 
     div.innerHTML = `
+      <button class="fav-btn ${isFav ? "is-favorite" : ""}" onclick="toggleFavorite(event, '${ch.url}')">
+        <i class="fa-${isFav ? "solid" : "regular"} fa-star"></i>
+      </button>
       <div class="channel-card-fallback" style="display: ${ch.logo ? "none" : "flex"}">
         <div class="channel-card-fallback-avatar" style="background: ${fallbackGradient}">${initials}</div>
         <div class="channel-card-fallback-name">${ch.name}</div>
@@ -366,6 +409,21 @@ function renderChannels() {
     div.onclick = () => playChannel(index);
     grid.appendChild(div);
   });
+}
+
+function toggleFavorite(event, url) {
+  event.stopPropagation(); // Prevent playing channel on bookmark tap
+  
+  const index = favorites.indexOf(url);
+  if (index === -1) {
+    favorites.push(url);
+  } else {
+    favorites.splice(index, 1);
+  }
+  
+  localStorage.setItem("alpha_tv_favorites", JSON.stringify(favorites));
+  updateFavoritesCount();
+  filterAndSearch();
 }
 
 /* SHOW BROWSER-ONLY HTTP INSECURE CONTENT WARNING MODAL */
@@ -1073,7 +1131,7 @@ function closeAppBanner() {
 }
 
 /* IN-APP UPDATE CHECKER (ANDROID APP ONLY) */
-const currentBuildCode = 8; // Matches version 1.0.7 build code
+const currentBuildCode = 9; // Matches version 1.0.8 build code
 
 function checkForUpdates() {
   if (!window.Capacitor) return;
