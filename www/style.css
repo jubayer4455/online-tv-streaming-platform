@@ -2351,7 +2351,7 @@ video {
 }
 
 .banner-download-btn {
-  background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+  background: linear-gradient(135deg, #ff9e00 0%, #ff6d00 100%);
   color: white;
   font-size: 12.5px;
   font-weight: 700;
@@ -2361,7 +2361,7 @@ video {
   display: flex;
   align-items: center;
   gap: 6px;
-  box-shadow: 0 4px 12px rgba(0, 242, 254, 0.25);
+  box-shadow: 0 4px 12px rgba(255, 110, 0, 0.25);
   white-space: nowrap;
   transition: transform var(--transition-fast);
   flex-shrink: 0;
@@ -2380,7 +2380,7 @@ video {
 }
 
 .warning-app-download-btn {
-  background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%) !important;
+  background: linear-gradient(135deg, #ff9e00 0%, #ff6d00 100%) !important;
   color: white !important;
   display: inline-flex;
   align-items: center;
@@ -2391,7 +2391,7 @@ video {
   font-weight: 600;
   padding: 10px 16px !important;
   border-radius: 12px !important;
-  box-shadow: 0 4px 15px rgba(0, 242, 254, 0.2) !important;
+  box-shadow: 0 4px 15px rgba(255, 110, 0, 0.25) !important;
   transition: all var(--transition-fast) !important;
   height: 40px;
   margin: 0;
@@ -2399,14 +2399,14 @@ video {
 
 .warning-app-download-btn:hover {
   transform: translateY(-1px) scale(1.02);
-  box-shadow: 0 6px 20px rgba(0, 242, 254, 0.3) !important;
+  box-shadow: 0 6px 20px rgba(255, 110, 0, 0.4) !important;
 }
 
 /* Neumorphic 3D overrides for the warning app download button */
 .mode-3d .warning-app-download-btn {
   box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.65), -5px -5px 12px rgba(255, 255, 255, 0.06), inset 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
   border: none !important;
-  background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%) !important;
+  background: linear-gradient(135deg, #ff9e00 0%, #ff6d00 100%) !important;
 }
 
 .mode-3d .warning-app-download-btn:hover {
