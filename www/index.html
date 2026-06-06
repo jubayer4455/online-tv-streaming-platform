@@ -53,6 +53,13 @@
             <h1 class="logo">Alpha <span>TV</span></h1>
           </div>
 
+          <!-- Header Update Notification -->
+          <div id="headerUpdateNotification" class="header-update-notification hidden">
+            <i class="fa-solid fa-rocket header-update-icon"></i>
+            <span class="header-update-text">Update Available</span>
+            <a id="headerUpdateLink" href="#" class="header-update-btn" onclick="handleUpdateDownload(event)">Update</a>
+          </div>
+
           <div class="header-right-widgets">
             <!-- View Mode Toggle (2D / 3D) -->
             <div class="view-toggle-container">
@@ -543,6 +550,15 @@
         </div>
         <div class="custom-modal-content update-modal-content">
           <p class="update-main-text">অ্যাপটি নির্বিঘ্নে ব্যবহার করতে এবং নতুন ফিচার উপভোগ করতে এখনই লেটেস্ট সংস্করণটি ডাউনলোড করুন।</p>
+          
+          <!-- Installation Warning Note -->
+          <div class="update-note-box">
+            <i class="fa-solid fa-circle-info update-note-icon"></i>
+            <p class="update-note-text">
+              <strong>💡 অনুরোধ:</strong> ইনস্টলেশন সংক্রান্ত সমস্যা এড়াতে, নতুন সংস্করণটি ইনস্টল করার পূর্বে আপনার ফোনে থাকা আগের অ্যাপটি অনুগ্রহ করে আনইনস্টল (Uninstall) করে নিন।
+            </p>
+          </div>
+
           <div class="update-changelog-container">
             <p class="changelog-title">নতুন সংস্করণে কী কী পরিবর্তন করা হয়েছে:</p>
             <div id="updateChangelog" class="update-changelog">

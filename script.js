@@ -1073,7 +1073,7 @@ function closeAppBanner() {
 }
 
 /* IN-APP UPDATE CHECKER (ANDROID APP ONLY) */
-const currentBuildCode = 7; // Matches version 1.0.6 build code
+const currentBuildCode = 8; // Matches version 1.0.7 build code
 
 function checkForUpdates() {
   if (!window.Capacitor) return;
@@ -1087,6 +1087,9 @@ function checkForUpdates() {
     })
     .then(data => {
       if (data && data.buildCode && data.buildCode > currentBuildCode) {
+        // Show the header notification badge whenever a new update is available
+        showHeaderUpdateNotification(data);
+
         // Check if the user clicked "Later" for this exact build code in the last 36 hours
         const laterTime = localStorage.getItem("alpha_tv_update_later_time");
         const laterBuild = localStorage.getItem("alpha_tv_update_later_build");
@@ -1102,11 +1105,32 @@ function checkForUpdates() {
         }
         
         showUpdateModal(data);
+      } else {
+        // If no update is available or already updated, hide the header badge
+        hideHeaderUpdateNotification();
       }
     })
     .catch(err => {
       console.warn("Failed to check for remote app updates:", err);
     });
+}
+
+function showHeaderUpdateNotification(updateData) {
+  const badge = document.getElementById("headerUpdateNotification");
+  const link = document.getElementById("headerUpdateLink");
+  if (badge) {
+    badge.classList.remove("hidden");
+  }
+  if (link && updateData.downloadUrl) {
+    link.setAttribute("href", updateData.downloadUrl);
+  }
+}
+
+function hideHeaderUpdateNotification() {
+  const badge = document.getElementById("headerUpdateNotification");
+  if (badge) {
+    badge.classList.add("hidden");
+  }
 }
 
 function showUpdateModal(updateData) {
@@ -1159,9 +1183,7 @@ function closeUpdateModal() {
 
 function handleUpdateDownload(event) {
   event.preventDefault();
-  const downloadLink = document.getElementById("updateDownloadLink");
-  if (!downloadLink) return;
-  const url = downloadLink.getAttribute("href");
+  const url = event.currentTarget.getAttribute("href");
   if (!url || url === "#") return;
 
   if (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Browser) {
