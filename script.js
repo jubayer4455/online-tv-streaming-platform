@@ -366,6 +366,34 @@ function renderChannels() {
   });
 }
 
+/* SHOW BROWSER-ONLY HTTP INSECURE CONTENT WARNING */
+function showHttpWarning() {
+  const loader = document.getElementById("playerLoader");
+  const spinner = loader.querySelector(".spinner");
+  const span = loader.querySelector("span");
+  const warning = document.getElementById("insecureWarning");
+
+  if (spinner) spinner.classList.add("hidden");
+  if (span) span.classList.add("hidden");
+  if (warning) warning.classList.remove("hidden");
+  loader.classList.remove("hidden");
+}
+
+/* RESET PLAYER LOADER TO NORMAL BUFFERING STATE */
+function resetPlayerLoader() {
+  const loader = document.getElementById("playerLoader");
+  const spinner = loader.querySelector(".spinner");
+  const span = loader.querySelector("span");
+  const warning = document.getElementById("insecureWarning");
+
+  if (spinner) spinner.classList.remove("hidden");
+  if (span) {
+    span.classList.remove("hidden");
+    span.innerText = "Buffering stream...";
+  }
+  if (warning) warning.classList.add("hidden");
+}
+
 /* PLAY CHANNEL STREAM */
 function playChannel(index) {
   if (index < 0 || index >= filteredChannels.length) return;
@@ -375,11 +403,12 @@ function playChannel(index) {
   const channel = filteredChannels[index];
   currentChannel = channel;
 
+  // Reset loader & error state
+  resetPlayerLoader();
+  video.onerror = null;
+
   // Show loader overlay
   loader.classList.remove("hidden");
-  const spinner = loader.querySelector(".spinner");
-  if (spinner) spinner.classList.remove("hidden");
-  loader.querySelector("span").innerText = "Buffering stream...";
 
   // Destroy existing HLS instance
   if (currentHls) {
@@ -407,6 +436,17 @@ function playChannel(index) {
     currentHls.on(Hls.Events.ERROR, (event, data) => {
       if (data.fatal) {
         console.warn("HLS fatal error, recovering...", data);
+
+        // Check if browser-only HTTP stream mixed content block
+        const isHttpsPage = window.location.protocol === 'https:';
+        const isHttpStream = channel.url.startsWith('http://');
+        const isBrowser = !window.Capacitor;
+
+        if (isBrowser && isHttpsPage && isHttpStream && data.type === Hls.ErrorTypes.NETWORK_ERROR) {
+          showHttpWarning();
+          return;
+        }
+
         loader.querySelector("span").innerText = "Re-connecting stream...";
         const spinner = loader.querySelector(".spinner");
         if (spinner) spinner.classList.remove("hidden");
@@ -425,6 +465,22 @@ function playChannel(index) {
     });
   } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
     video.src = channel.url;
+
+    // Listen to native errors for Safari mixed-content blocks
+    video.onerror = () => {
+      const isHttpsPage = window.location.protocol === 'https:';
+      const isHttpStream = channel.url.startsWith('http://');
+      const isBrowser = !window.Capacitor;
+
+      if (isBrowser && isHttpsPage && isHttpStream) {
+        showHttpWarning();
+      } else {
+        loader.querySelector("span").innerText = "Stream unavailable ⚠️";
+        const spinner = loader.querySelector(".spinner");
+        if (spinner) spinner.classList.add("hidden");
+      }
+    };
+
     video.addEventListener("loadedmetadata", () => {
       video.play().catch(err => {
         console.log("Autoplay blocked:", err);
@@ -441,13 +497,11 @@ function playChannel(index) {
   // Hook playing events to handle loaders
   video.onplaying = () => {
     loader.classList.add("hidden");
-    const spinner = loader.querySelector(".spinner");
-    if (spinner) spinner.classList.remove("hidden");
+    resetPlayerLoader();
   };
 
   video.onwaiting = () => {
-    const spinner = loader.querySelector(".spinner");
-    if (spinner) spinner.classList.remove("hidden");
+    resetPlayerLoader();
     loader.querySelector("span").innerText = "Buffering stream...";
     loader.classList.remove("hidden");
   };
