@@ -42,29 +42,31 @@
 
 Below are the technical specifications of the native Android application package:
 
-| Specification | Details |
-|---|---|
-| 📦 **App Name** | `AlphaTV-v1.0.8.apk` |
-| 🆔 **Package Name** | `com.alphatv.app` |
-| 🏷️ **Current Version** | `1.0.8` (Build Code `9`) |
-| 📂 **App Size** | ~31.1 MB |
-| ⚙️ **Minimum OS Support** | Android 7.0 (Nougat - API Level 24) or higher |
-| 🎯 **Target SDK** | Android 15 / 16 (API Level 36) |
-| 🎮 **Category** | Entertainment / Live TV Streaming |
-| 🌍 **Supported Architectures** | `universal` (arm64-v8a, armeabi-v7a, x86, x86_64) |
-| 🚀 **Releases Directory** | [GitHub Releases](https://github.com/Shariar-Ahamed/online-tv-streaming-platform/releases) |
+| Specification                  | Details                                                                                    |
+| ------------------------------ | ------------------------------------------------------------------------------------------ |
+| 📦 **App Name**                | `AlphaTV-v1.0.8.apk`                                                                       |
+| 🆔 **Package Name**            | `com.alphatv.app`                                                                          |
+| 🏷️ **Current Version**         | `1.0.8` (Build Code `9`)                                                                   |
+| 📂 **App Size**                | ~31.1 MB                                                                                   |
+| ⚙️ **Minimum OS Support**      | Android 7.0 (Nougat - API Level 24) or higher                                              |
+| 🎯 **Target SDK**              | Android 15 / 16 (API Level 36)                                                             |
+| 🎮 **Category**                | Entertainment / Live TV Streaming                                                          |
+| 🌍 **Supported Architectures** | `universal` (arm64-v8a, armeabi-v7a, x86, x86_64)                                          |
+| 🚀 **Releases Directory**      | [GitHub Releases](https://github.com/Shariar-Ahamed/online-tv-streaming-platform/releases) |
 
 ---
 
 ## 🌟 Key Features
 
 ### ⭐ Favorites Channel List (Bookmarking)
+
 - **Real-Time Bookmarks:** Tap the golden star icon on any channel card to add it to your Favorites list instantly.
 - **Persistent Storage:** Bookmarks are saved locally in the browser/app `localStorage`, persisting across page reloads and app restarts.
 - **Empty Notice:** A premium empty state helper instructs users how to start favoriting channels.
 - **Custom Categories Sequence:** Ordered such that `Favorites` ➔ `All Channels` ➔ `Sports` ➔ `Bangla` are prioritized first in the filter bar.
 
 ### 🎛️ 2D / 3D Layout Toggle Switch
+
 - Toggle instantly between a **Modern 2D Glow UI** and a **Tactile 3D Soft Neumorphic UI** directly from the header.
 - Features custom color-reversed slider gradients:
   - **3D Mode:** Pink-to-Purple (`#ff007f` to `#9b51e0`) with soft outset highlights and inset cutouts.
@@ -72,15 +74,18 @@ Below are the technical specifications of the native Android application package
 - Incorporates a **Zero-Flash layout switch mechanism** that disables CSS border transition delays during layout changes while keeping the slider animation smooth.
 
 ### 📱 Tailored Mobile Layout
+
 - **Clean Header:** The top header on mobile is kept neat and spacious, placing the logo on the left and the 2D/3D toggle cleanly on the right.
 - **Header Live Counter:** Relocated to the active channel details card, sitting horizontally side-by-side with the green `LIVE` badge on the top row of the card for a cohesive, balanced mobile interface.
 
 ### 📺 Integrated HLS Player
+
 - Native HLS `.m3u8` live stream decoding powered by `HLS.js`.
 - Features built-in smart playback controls (Next, Previous, Play/Pause, Fullscreen).
 - Includes dynamic loading spinners and live status badges.
 
 ### 🗂️ Smart M3U Playlist Parsing & Categories
+
 - Automatically parses [channels.m3u](file:///e:/Git%20All%20Repo/online-tv-streaming-platform/channels.m3u) on startup.
 - Dynamically generates categories and sorts items with an inline swipeable category pill carousel.
 - Rounded picture logo formatting (`border-radius: 10px`) across both 2D and 3D states.
@@ -100,11 +105,13 @@ Below are the technical specifications of the native Android application package
 ## 🖥️ Responsive Preview
 
 ### 💻 Laptop & Desktop View
+
 <p align="center">
   <img src="assets/laptop-view.png" alt="Laptop Preview" width="80%" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.5);">
 </p>
 
 ### 📲 Tablet & Mobile View
+
 <p align="center">
   <img src="assets/tab-view.png" width="45%" alt="Tablet Preview" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.5);">
   &nbsp;&nbsp;&nbsp;&nbsp;
@@ -139,19 +146,23 @@ online-tv-streaming-platform/
 ## ⚙️ Getting Started (Local Development)
 
 ### 1️⃣ Clone the Repository
+
 ```bash
 git clone https://github.com/Shariar-Ahamed/online-tv-streaming-platform.git
 cd online-tv-streaming-platform
 ```
 
 ### 2️⃣ Run locally with Live Server
+
 1. Open the project in Visual Studio Code.
 2. Ensure you have the **Live Server** extension installed.
 3. Right-click inside `index.html` and select **Open with Live Server**.
 4. Access the web app at `http://127.0.0.1:5500`.
 
 ### 3️⃣ Build and Sync to Android (Capacitor)
+
 If you want to package the app and prepare it for Android builds:
+
 ```bash
 # Install node dependencies
 npm install
