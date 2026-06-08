@@ -1,18 +1,16 @@
 #EXTM3U
 #EXTINF:-1 ,FIFA World Cup 2026
 https://owrcovcrpy.gpcdn.net/bpk-tv/1702/output/1702-audio_113322_eng=113200-video=2202800.m3u8
+
 #EXTINF:-1 ,FIFA World Cup 2026 🇦🇷[coming]
 http://cdn.tv-rds.workers.dev/TYCSPT.m3u8
+
 #EXTINF:-1 ,FIFA World Cup 2026 🇧🇷[coming]
 https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Caze/Caze_TV_BR/1080p-vtt/index.m3u8
+
 #EXTINF:-1 ,FIFA World Cup 2026 🇮🇳[coming]
 http://66.102.126.10:8000/play/a022/index.m3u8
-#EXTINF:-1 ,Euro Sports
-https://stream.ottplus.bd/live/euro_sports_hd_abr/live/euro_sports_hd/chunks.m3u8
-#EXTINF:-1 ,T SPORTS
-https://amitomar.bdixbd.net/hoichoi.pro1/tracks-v1/index.m3u8
-#EXTINF:-1 ,STAR SPORTS 1
-https://tvsen7.aynaott.com/sspts1/tracks-v1a1/mono.ts.m3u8
+
 #EXTINF:-1 ,beIN sports Xtra
 https://bein-esp-xumo.amagi.tv/playlistR720P.m3u8
 #EXTINF:-1 ,ESPN
