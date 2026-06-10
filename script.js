@@ -283,6 +283,7 @@ function renderCategories() {
   // Sort categories by user defined custom order
   categories.sort((a, b) => {
     const customOrder = [
+      "fifa 2026",
       "sports",
       "bangla",
       "news",
