@@ -5,14 +5,14 @@
 # 📺 Alpha TV - Premium Live Streaming Platform
 
 <p align="center">
-  <a href="https://github.com/Shariar-Ahamed/online-tv-streaming-platform/releases"><img src="https://img.shields.io/badge/Download-AlphaTV--v1.1.2.apk-brightgreen?style=for-the-badge&logo=android&logoColor=white" alt="Download APK"></a>
+  <a href="https://github.com/Shariar-Ahamed/online-tv-streaming-platform/releases"><img src="https://img.shields.io/badge/Download-AlphaTV--v1.1.3.apk-brightgreen?style=for-the-badge&logo=android&logoColor=white" alt="Download APK"></a>
   <a href="https://shariar-ahamed.github.io/online-tv-streaming-platform/"><img src="https://img.shields.io/badge/Live-Web%20Demo-ff007f?style=for-the-badge&logo=livewire&logoColor=white" alt="Live Demo"></a>
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Platform-Android%20%7C%20Web-blue?style=flat-square&logo=capacitor&logoColor=white">
   <img src="https://img.shields.io/badge/UI-Neumorphic%20%2F%20Glassmorphism-violet?style=flat-square">
-  <img src="https://img.shields.io/badge/Version-v1.1.2-brightgreen?style=flat-square">
+  <img src="https://img.shields.io/badge/Version-v1.1.3-brightgreen?style=flat-square">
   <img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square">
 </p>
 
@@ -44,9 +44,9 @@ Below are the technical specifications of the native Android application package
 
 | Specification                  | Details                                                                                    |
 | ------------------------------ | ------------------------------------------------------------------------------------------ |
-| 📦 **App Name**                | `AlphaTV-v1.1.2.apk`                                                                       |
+| 📦 **App Name**                | `AlphaTV-v1.1.3.apk`                                                                       |
 | 🆔 **Package Name**            | `com.alphatv.app`                                                                          |
-| 🏷️ **Current Version**         | `1.1.2` (Build Code `13`)                                                                  |
+| 🏷️ **Current Version**         | `1.1.3` (Build Code `14`)                                                                  |
 | 📂 **App Size**                | ~31.1 MB                                                                                   |
 | ⚙️ **Minimum OS Support**      | Android 7.0 (Nougat - API Level 24) or higher                                              |
 | 🎯 **Target SDK**              | Android 15 / 16 (API Level 36)                                                             |
@@ -189,7 +189,19 @@ npx cap open android
 
 ## 📋 Release History & Changelog
 
-### 🚀 v1.1.2 (Current Release) - Build Code `13`
+### 🚀 v1.1.3 (Current Release) - Build Code `14`
+* **Mute/Volume Control Button:**
+  * Integrated a dedicated Mute/Unmute sound button directly into the custom control bar (re-ordered for optimal UX, placing Fullscreen on the far right).
+  * Automatically stores the user's volume state in `localStorage` so it persists between different channels and application restarts.
+* **Premium Neon Gyro-Loader:**
+  * Replaced the standard loading indicator with a highly responsive, modern concentric neon gyro-spinner (customized orange and blue themes matching the website layout) around a pulsing central core.
+  * Added dynamic shining gradient text for buffering updates and a frosted glass overlay with `backdrop-filter: blur(12px)` over the player area.
+* **Changelog & Status Updates:**
+  * Added server stream notice handling for temporary loading issues.
+  * Created dedicated `FIFA 2026` category with new streams.
+  * Updated portfolio links to the new domain `www.shariarahamed.me` and Telegram channel to `@Alpha_TV_Official`.
+
+### 🚀 v1.1.2 - Build Code `13`
 * **Automatic Picture-in-Picture (PiP) Mode:**
   * Enabled Picture-in-Picture capability for both the Web application and the native Android App wrapper.
   * Pressing the **Home button** in mobile browsers or **Home / Back buttons** inside the Android App will automatically transition the playing stream into a floating PiP window.
@@ -227,7 +239,7 @@ npx cap open android
 
 ## 🔗 Useful Links
 
-- **Latest APK Release:** [Download AlphaTV-v1.1.2.apk](https://github.com/Shariar-Ahamed/online-tv-streaming-platform/releases)
+- **Latest APK Release:** [Download AlphaTV-v1.1.3.apk](https://github.com/Shariar-Ahamed/online-tv-streaming-platform/releases)
 - **Live Web App:** [Alpha TV Live Web App](https://shariar-ahamed.github.io/online-tv-streaming-platform/)
 - **Source Code Repository:** [GitHub Repository](https://github.com/Shariar-Ahamed/online-tv-streaming-platform)
 
