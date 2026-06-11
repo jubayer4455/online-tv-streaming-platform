@@ -1,7 +1,7 @@
 /* VARIABLES */
 
-// const playlistOnline = "channels.m3u";
-const playlistOnline = "https://raw.githubusercontent.com/Shariar-Ahamed/online-tv-streaming-platform/main/channels.m3u";
+const playlistOnline = "channels.m3u";
+// const playlistOnline = "https://raw.githubusercontent.com/Shariar-Ahamed/online-tv-streaming-platform/main/channels.m3u";
 const playlistLocal = "channels.m3u";
 
 let channels = [];
@@ -38,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
   checkForUpdates();
   checkDisclaimer();
   setupPictureInPicture();
+  setupVolumeControl();
 });
 
 /* DETECT NATIVE FULLSCREEN EXIT TO UNLOCK ORIENTATION & HANDLE BACK BUTTON */
@@ -154,6 +155,40 @@ function setupPlayerSync() {
     }
     nextChannel();
   });
+}
+
+/* VOLUME & MUTE CONTROL LOGIC */
+function setupVolumeControl() {
+  const video = document.getElementById("video");
+  const isMutedSaved = localStorage.getItem("alpha_tv_muted") === "true";
+  video.muted = isMutedSaved;
+  updateVolumeButtonState(isMutedSaved);
+
+  video.addEventListener("volumechange", () => {
+    updateVolumeButtonState(video.muted);
+  });
+}
+
+function toggleMute() {
+  const video = document.getElementById("video");
+  if (!video) return;
+  video.muted = !video.muted;
+  localStorage.setItem("alpha_tv_muted", video.muted);
+}
+
+function updateVolumeButtonState(isMuted) {
+  const volumeBtn = document.getElementById("volumeBtn");
+  if (!volumeBtn) return;
+  const icon = volumeBtn.querySelector("i");
+  if (icon) {
+    if (isMuted) {
+      icon.className = "fa-solid fa-volume-xmark";
+      volumeBtn.title = "Unmute";
+    } else {
+      icon.className = "fa-solid fa-volume-high";
+      volumeBtn.title = "Mute";
+    }
+  }
 }
 
 /* AUTO-HIDE PLAYER CONTROLS */
