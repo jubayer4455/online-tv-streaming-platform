@@ -32,7 +32,6 @@ const filesToCopy = [
   'script.js',
   'style.css',
   'channels.m3u',
-  'IP-TV.m3u',
   'hls.js',
   'LICENSE'
 ];
