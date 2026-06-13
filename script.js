@@ -1,7 +1,7 @@
 /* VARIABLES */
 
-// const playlistOnline = "channels.m3u";
-const playlistOnline = "https://raw.githubusercontent.com/Shariar-Ahamed/online-tv-streaming-platform/main/channels.m3u";
+const playlistOnline = "channels.m3u";
+// const playlistOnline = "https://raw.githubusercontent.com/Shariar-Ahamed/online-tv-streaming-platform/main/channels.m3u";
 const playlistLocal = "channels.m3u";
 
 let channels = [];
@@ -518,7 +518,12 @@ function renderChannels() {
         <div class="channel-card-fallback-avatar" style="background: ${fallbackGradient}">${initials}</div>
         <div class="channel-card-fallback-name">${ch.name}</div>
       </div>
-      ${ch.logo ? `<img src="${ch.logo}" alt="${ch.name}" loading="lazy" onerror="handleCardLogoError(this, '${ch.name}')">` : ""}
+      ${ch.logo ? `
+        <div class="channel-logo-wrapper">
+          <img src="${ch.logo}" alt="${ch.name}" loading="lazy" onerror="handleCardLogoError(this, '${ch.name}')">
+        </div>
+        <span class="channel-card-name">${ch.name}</span>
+      ` : ""}
     `;
 
     div.onclick = () => playChannel(index);
