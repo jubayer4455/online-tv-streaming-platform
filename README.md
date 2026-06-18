@@ -1,12 +1,12 @@
 <p align="center">
-  <img src="assets/Readme.md-cover.png" alt="Alpha TV Cover Page" width="100%" style="border-radius: 12px; margin-bottom: 20px;">
+  <img src="assets/Readme.md-cover.png" alt="ZU TV Cover Page" width="100%" style="border-radius: 12px; margin-bottom: 20px;">
 </p>
 
-# 📺 Alpha TV - Premium Live Streaming Platform
+# 📺 ZU TV - Premium Live Streaming Platform
 
 <p align="center">
-  <a href="https://github.com/Shariar-Ahamed/online-tv-streaming-platform/releases"><img src="https://img.shields.io/badge/Download-AlphaTV--v1.1.3.apk-brightgreen?style=for-the-badge&logo=android&logoColor=white" alt="Download APK"></a>
-  <a href="https://shariar-ahamed.github.io/online-tv-streaming-platform/"><img src="https://img.shields.io/badge/Live-Web%20Demo-ff007f?style=for-the-badge&logo=livewire&logoColor=white" alt="Live Demo"></a>
+  <a href="https://github.com/jubayer4455/online-tv-streaming-platform/releases"><img src="https://img.shields.io/badge/Download-ZuTV--v1.1.3.apk-brightgreen?style=for-the-badge&logo=android&logoColor=white" alt="Download APK"></a>
+  <a href="https://jubayer4455.github.io/online-tv-streaming-platform/"><img src="https://img.shields.io/badge/Live-Web%20Demo-ff007f?style=for-the-badge&logo=livewire&logoColor=white" alt="Live Demo"></a>
 </p>
 
 <p align="center">
@@ -34,7 +34,7 @@
 
 ## 📖 Overview
 
-**Alpha TV** is a premium, modern, and highly responsive online Live TV streaming platform. It packages a cyber-dark, glassmorphic Web App into a lightweight native Android App using the Capacitor framework. Featuring a dual-mode layout (2D Flat & 3D Neumorphic), dynamic M3U parsing, HLS streaming playback, and an intelligent channel navigation system, Alpha TV brings local and international television straight to your pocket.
+**ZU TV** is a premium, modern, and highly responsive online Live TV streaming platform. It packages a cyber-dark, glassmorphic Web App into a lightweight native Android App using the Capacitor framework. Featuring a dual-mode layout (2D Flat & 3D Neumorphic), dynamic M3U parsing, HLS streaming playback, and an intelligent channel navigation system, Alpha TV brings local and international television straight to your pocket.
 
 ---
 
@@ -52,7 +52,7 @@ Below are the technical specifications of the native Android application package
 | 🎯 **Target SDK**              | Android 15 / 16 (API Level 36)                                                             |
 | 🎮 **Category**                | Entertainment / Live TV Streaming                                                          |
 | 🌍 **Supported Architectures** | `universal` (arm64-v8a, armeabi-v7a, x86, x86_64)                                          |
-| 🚀 **Releases Directory**      | [GitHub Releases](https://github.com/Shariar-Ahamed/online-tv-streaming-platform/releases) |
+| 🚀 **Releases Directory**      | [GitHub Releases](https://github.com/jubayer4455/online-tv-streaming-platform.git) |
 
 ---
 
