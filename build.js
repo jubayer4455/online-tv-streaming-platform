@@ -33,7 +33,9 @@ const filesToCopy = [
   'style.css',
   'channels.m3u',
   'hls.js',
-  'LICENSE'
+  'LICENSE',
+  'speed-insights.js',
+  'speed-insights-init.js'
 ];
 
 for (const file of filesToCopy) {
